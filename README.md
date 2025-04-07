@@ -10,8 +10,12 @@
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/6fp9Wk59fJ)
 
+nx g @nx/react:host apps/shell --remotes=shop,cart
+nx g @nx/react:remote apps/about --host=shell
 
 ## Run tasks
+
+nx serve shell --devRemotes=cart,shop.
 
 To run the dev server for your app, use:
 
