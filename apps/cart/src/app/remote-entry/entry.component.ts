@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Component } from '@angular/core';
+import { CartComponent } from '../components/cart/cart.component';
 
 @Component({
-  imports: [CommonModule, NxWelcomeComponent],
+  imports: [CommonModule, CartComponent],
   selector: 'app-cart-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<app-cart></app-cart>`,
 })
 export class RemoteEntryComponent {}

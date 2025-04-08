@@ -1,0 +1,17 @@
+.app{
+    height: 100vh;
+    width: 100%;
+    background-color:#fafafa;
+}
+
+.navbar {
+    height: 3rem;
+}
+.main {
+    height: calc(100vh - 4rem);
+    overflow: hidden;
+}
+.outlet{
+    height: 100%;
+    overflow: auto;
+}

@@ -1,19 +1,31 @@
-<div class="app container-fluid">
-  <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Navbar</span>
-    </div>
-  </nav>
-  <div class="main row">
-    <div class="col-2">
-      <ul class="list-group">
-        <li class="list-group-item" routerLink="/">Home</li>
-        <li class="list-group-item" routerLink="shop">Shop</li>
-        <li class="list-group-item" routerLink="cart">Cart</li>
-      </ul>
-    </div>
-    <div class="col-10">
-      <router-outlet></router-outlet>
+<div class="app">
+  <div class="container-fluid">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+      </div>
+    </nav>
+    <div class="main row">
+      <div class="col-2 sidebar">
+        <ul class="list-group-flush h-100 list-group d-flex bg-white flex-column">
+          <li class="list-group-item" routerLink="/">
+            <i class="bi bi-house me-2"></i>
+            Home
+          </li>
+          <li class="list-group-item" routerLink="shop">
+            <i class="bi bi-bag me-2"></i>
+            Shop</li>
+          <li class="list-group-item" routerLink="cart">
+            <i class="bi bi-bag-check me-2"></i>
+            Cart</li>
+          <li class="list-group-item mt-auto">
+            <i class="bi bi-sliders me-2"></i>
+            Setting</li>
+        </ul>
+      </div>
+      <div class="col-10 outlet">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
