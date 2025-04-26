@@ -19,6 +19,10 @@ export default withModuleFederation(
      *   ['app2', 'https://app2.example.com'],
      * ]
      */
+    remotes: [
+      ['cart', 'https://cart-96506.firebaseapp.com/'],
+      ['shop', 'https://hello-a61d7.firebaseapp.com/'],
+    ],
   },
   { dts: false }
 );

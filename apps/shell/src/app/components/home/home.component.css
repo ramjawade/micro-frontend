@@ -1,0 +1,10 @@
+.highlight {
+  display: block;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light gray background */
+  border-left: 4px solid #007bff; /* Blue border to emphasize */
+  font-weight: bold;
+  color: #343a40; /* Dark text color */
+  border-radius: 0.25rem;
+}

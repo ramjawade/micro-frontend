@@ -1,14 +1,26 @@
 # MicroFrontend
+This is micro front end app, an experiment where we are trying to show monolithic as well as micro front end application demo.
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+it has following apps
+1. shell - its Parent App 
+2. shop - child app
+3. cart  - child app
+4. demo  - demo purpose 
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+Hosting 
+shop - https://hello-a61d7.firebaseapp.com/
+cart - https://cart-96506.firebaseapp.com/
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Deployment
+firebase deploy --only hosting:cart --project cart
+firebase deploy --only hosting:shop --project shop
+firebase deploy --only hosting:shell --project micro-frontend-c486f
 
 ## Finish your CI setup
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/6fp9Wk59fJ)
+
+## Generate cmd
 
 nx g @nx/react:host apps/shell --remotes=shop,cart
 nx g @nx/react:remote apps/about --host=shell
@@ -74,10 +86,6 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 Learn more:
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 And join the Nx community:
 - [Discord](https://go.nx.dev/community)

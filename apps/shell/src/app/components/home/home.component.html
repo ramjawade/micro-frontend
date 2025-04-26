@@ -1,5 +1,82 @@
-<div class="container">
-  <h1>Home</h1>
-  <p>Welcome to the home page!</p>
-  <p>Here you can find the latest news and updates.</p>
-  <p>Check out our latest products and offers!</p>
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="display-4">Welcome to the Micro-Frontend Demo</h1>
+    <p class="lead">
+      Explore the power of combining monolithic and micro-frontend architectures.
+    </p>
+  </div>
+
+  <hr class="my-4" />
+
+  <div class="row mt-5">
+    <!-- Monolithic Section -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Monolithic Application</h5>
+          <p class="card-text">
+            Experience the traditional monolithic architecture where all features are tightly integrated into a single application.
+          </p>
+          <span class="highlight">
+            This application is a monolithic application that serves the shop and cart functionalities from other hosted servers.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro-Frontend Section -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Micro-Frontend Application</h5>
+          <p class="card-text">
+            Discover the flexibility of micro-frontends, where independent modules work together seamlessly.
+          </p>
+          <span class="highlight mb-3">
+            To see the micro-frontend application in action, click the button below.
+          </span>
+          <!-- Dropdown for Micro-Frontend -->
+          <div class="dropdown">
+            <button
+              class="btn btn-success dropdown-toggle"
+              type="button"
+              id="microFrontendDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Explore Micro-Frontend
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="microFrontendDropdown">
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://hello-a61d7.firebaseapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Shop
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://cart-96506.firebaseapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Cart
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <p class="text-muted">
+      This demo showcases how monolithic and micro-frontend architectures can coexist in a single application.
+    </p>
+  </div>
+</div>

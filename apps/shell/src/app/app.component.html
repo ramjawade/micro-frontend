@@ -1,26 +1,58 @@
 <div class="app">
   <div class="container-fluid">
     <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Navbar</span>
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <span class="navbar-brand mb-0 h1">Micro-Frontend</span>
+        <!-- User Avatar -->
+        <span
+          class="ms-auto rounded-circle bg-primary text-white"
+          style="cursor: pointer"
+        >
+          DJ
+        </span>
+        <div class="dropdown">
+          <div
+            id="userAvatarDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="ms-3">John Doe</span>
+          </div>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userAvatarDropdown"
+          >
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="main row">
       <div class="col-2 sidebar">
-        <ul class="list-group-flush h-100 list-group d-flex bg-white flex-column">
+        <ul
+          class="list-group-flush h-100 list-group d-flex bg-white flex-column"
+        >
           <li class="list-group-item" routerLink="/">
             <i class="bi bi-house me-2"></i>
             Home
           </li>
           <li class="list-group-item" routerLink="shop">
             <i class="bi bi-bag me-2"></i>
-            Shop</li>
+            Shop
+          </li>
           <li class="list-group-item" routerLink="cart">
             <i class="bi bi-bag-check me-2"></i>
-            Cart</li>
+            Cart
+          </li>
           <li class="list-group-item mt-auto">
             <i class="bi bi-sliders me-2"></i>
-            Setting</li>
+            Setting
+          </li>
         </ul>
       </div>
       <div class="col-10 outlet">

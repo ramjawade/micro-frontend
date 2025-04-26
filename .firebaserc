@@ -1,0 +1,31 @@
+{
+  "projects": {
+    "shell": "micro-frontend-c486f",
+    "shop": "hello-a61d7",
+    "cart": "cart-96506"
+  },
+  "targets": {
+    "hello-a61d7": {
+      "hosting": {
+        "shop": [
+          "hello-a61d7"
+        ]
+      }
+    },
+    "cart-96506": {
+      "hosting": {
+        "cart": [
+          "cart-96506"
+        ]
+      }
+    },
+    "micro-frontend-c486f": {
+      "hosting": {
+        "shell": [
+          "micro-frontend-c486f"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
