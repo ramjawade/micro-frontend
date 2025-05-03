@@ -1,0 +1,26 @@
+.vertical-line {
+  position: relative;
+  background-color: #ddd;
+  padding: 0 1px;
+  margin: 0 5px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 50%;
+  left: -10px; /* Adjusted to make the button half visible */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  /* font-size: 0.8rem; */
+  background-color: white; /* Optional: Add a background color for better visibility */
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  opacity: 0.8; /* Optional: Slight transparency for a subtle effect */
+}
+
+.shop{
+    height: 100%;
+    width: 100%;
+    background-color:#fafafa;
+}

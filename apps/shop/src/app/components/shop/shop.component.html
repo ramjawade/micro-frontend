@@ -1,15 +1,83 @@
-<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-sm-2 g-xl-4 g-lg-3">
-  @for(product of products; track $index){
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <button class="btn btn-primary" (click)="addToCart(product)">
-          Add to Cart
+{{user.name}}
+<div class="shop">
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- Filter Section -->
+      <div class="col-lg-3" *ngIf="showFilters">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Filters</h5>
+            <button
+              class="btn btn-secondary btn-sm mb-2"
+              (click)="clearFilters()"
+            >
+              Clear Filters
+            </button>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="filter1"
+                [(ngModel)]="filters.category1"
+              />
+              <label class="form-check-label" for="filter1">Category 1</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="filter2"
+                [(ngModel)]="filters.category2"
+              />
+              <label class="form-check-label" for="filter2">Category 2</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="filter3"
+                [(ngModel)]="filters.category3"
+              />
+              <label class="form-check-label" for="filter3">Category 3</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical Line with Toggle Button -->
+      <!-- <div class="vertical-line">
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          (click)="toggleFilters()"
+        >
+          @if(showFilters) {
+          <i class="bi bi-arrow-left"></i>
+          } @else {
+          <i class="bi bi-arrow-right"></i>
+          }
         </button>
+      </div> -->
+
+      <!-- Product Section -->
+      <div [class.col-lg-9]="showFilters" [class.col-lg-12]="!showFilters">
+        <div
+          class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-sm-2 g-xl-4 g-lg-3"
+        >
+          <div class="col" *ngFor="let product of filteredProducts">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  {{ product.subtitle }}
+                </h6>
+                <button class="btn btn-primary" (click)="addToCart(product)">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  }
 </div>

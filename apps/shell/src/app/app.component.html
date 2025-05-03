@@ -4,6 +4,7 @@
       <div
         class="container-fluid d-flex justify-content-between align-items-center"
       >
+        <i class="bi bi-grid-3x3-gap me-3 fs-4" (click)="toggleSidebar()"></i>
         <span class="navbar-brand mb-0 h1">Micro-Frontend</span>
         <!-- User Avatar -->
         <span
@@ -18,7 +19,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <span class="ms-3">John Doe</span>
+            <span class="ms-3">{{ user.name }}</span>
           </div>
           <ul
             class="dropdown-menu dropdown-menu-end"
@@ -33,29 +34,46 @@
       </div>
     </nav>
     <div class="main row">
-      <div class="col-2 sidebar">
+      <div class="col-auto sidebar">
         <ul
           class="list-group-flush h-100 list-group d-flex bg-white flex-column"
         >
-          <li class="list-group-item" routerLink="/">
-            <i class="bi bi-house me-2"></i>
-            Home
+          <li
+            class="list-group-item"
+            routerLink="/"
+            routerLinkActive="bg-primary-subtle"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="bi bi-house"></i>
+            <span class="ms-2" *ngIf="sidebarOpen">Home</span>
           </li>
-          <li class="list-group-item" routerLink="shop">
-            <i class="bi bi-bag me-2"></i>
-            Shop
+          <li
+            class="list-group-item"
+            routerLink="shop"
+            routerLinkActive="bg-primary-subtle"
+          >
+            <i class="bi bi-bag"></i>
+            <span class="ms-2" *ngIf="sidebarOpen">Shop</span>
           </li>
-          <li class="list-group-item" routerLink="cart">
-            <i class="bi bi-bag-check me-2"></i>
-            Cart
+          <li
+            class="list-group-item"
+            routerLink="cart"
+            routerLinkActive="bg-primary-subtle"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="ms-2" *ngIf="sidebarOpen">Cart</span>
           </li>
-          <li class="list-group-item mt-auto">
-            <i class="bi bi-sliders me-2"></i>
-            Setting
+          <li
+            class="list-group-item mt-auto"
+            routerLink="settings"
+            routerLinkActive="bg-primary-subtle"
+          >
+            <i class="bi bi-sliders"></i>
+            <span class="ms-2" *ngIf="sidebarOpen">Settings</span>
           </li>
         </ul>
       </div>
-      <div class="col-10 outlet">
+      <div class="col outlet">
         <router-outlet></router-outlet>
       </div>
     </div>
