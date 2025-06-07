@@ -1,0 +1,303 @@
+<div
+  class="app container-fluid"
+  [style.--dj-btn-padding-x]="btnPaddingX + 'rem'"
+  [style.--dj-btn-padding-y]="btnPaddingY + 'rem'"
+  [style.--dj-btn-font-family]="btnFontFamily"
+  [style.--dj-btn-line-height]="btnLineHeight"
+  [style.--dj-btn-color]="btnColor"
+  [style.--dj-btn-bg]="btnBg"
+  [style.--dj-btn-border-width]="btnBorderWidth + 'px'"
+  [style.--dj-btn-border-color]="btnBorderColor"
+  [style.--dj-btn-border-radius]="btnBorderRadius + 'px'"
+  [style.--dj-btn-box-shadow]="btnBoxShadow"
+  [style.--dj-btn-hover-bg]="btnHoverBg"
+  [style.--dj-btn-active-shadow]="btnActiveShadow"
+  [style.--dj-btn-disabled-bg]="btnDisabledBg"
+  [style.--dj-btn-link-hover-color]="btnLinkHoverColor"
+  [style.--dj-btn-link-disabled-color]="btnLinkDisabledColor"
+  [style.--dj-btn-link-focus-shadow-rgb]="btnLinkFocusShadowRgb"
+  [style.--dj-btn-link-color]="btnLinkColor"
+  [style.--dj-btn-transition]="btnTransition"
+>
+  <div class="row">
+    <!-- Sidebar for Controls -->
+    <div class="col-md-4 col-lg-3 p-3 bg-light border-end">
+      <h2 class="text-primary mb-4">Component Designer</h2>
+
+      <!-- Padding Controls -->
+      <div class="mb-3">
+        <label for="btn-padding-y" class="form-label">Padding Y:</label>
+        <input
+          id="btn-padding-y"
+          type="number"
+          class="form-control"
+          [(ngModel)]="btnPaddingY"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="btn-padding-x" class="form-label">Padding X:</label>
+        <input
+          id="btn-padding-x"
+          type="number"
+          class="form-control"
+          [(ngModel)]="btnPaddingX"
+        />
+      </div>
+
+      <!-- Font Family Control -->
+      <div class="mb-3">
+        <label for="btn-font-family" class="form-label">Font Family:</label>
+        <select
+          id="btn-font-family"
+          class="form-select"
+          [(ngModel)]="btnFontFamily"
+        >
+          <option *ngFor="let font of fontFamilies" [value]="font">
+            {{ font }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Line Height Control -->
+      <div class="mb-3">
+        <label for="btn-line-height" class="form-label">Line Height:</label>
+        <input
+          id="btn-line-height"
+          type="number"
+          step="0.1"
+          class="form-control"
+          [(ngModel)]="btnLineHeight"
+        />
+      </div>
+
+      <!-- Color Picker for Text Color -->
+      <div class="mb-3">
+        <label for="btn-color" class="form-label">Text Color:</label>
+        <input
+          id="btn-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnColor"
+        />
+      </div>
+
+      <!-- Color Picker for Background -->
+      <div class="mb-3">
+        <label for="btn-bg" class="form-label">Background Color:</label>
+        <input
+          id="btn-bg"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnBg"
+        />
+      </div>
+
+      <!-- Border Width Control -->
+      <div class="mb-3">
+        <label for="btn-border-width" class="form-label">Border Width:</label>
+        <input
+          id="btn-border-width"
+          type="number"
+          class="form-control"
+          [(ngModel)]="btnBorderWidth"
+        />
+      </div>
+
+      <!-- Border Color Picker -->
+      <div class="mb-3">
+        <label for="btn-border-color" class="form-label">Border Color:</label>
+        <input
+          id="btn-border-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnBorderColor"
+        />
+      </div>
+
+      <!-- Border Radius Control -->
+      <div class="mb-3">
+        <label for="btn-border-radius" class="form-label">Border Radius:</label>
+        <input
+          id="btn-border-radius"
+          type="number"
+          min="0"
+          class="form-control"
+          [(ngModel)]="btnBorderRadius"
+        />
+      </div>
+
+      <!-- Box Shadow Control -->
+      <div class="mb-3">
+        <label for="btn-box-shadow" class="form-label">Box Shadow:</label>
+        <input
+          id="btn-box-shadow"
+          type="text"
+          class="form-control"
+          [(ngModel)]="btnBoxShadow"
+          placeholder="e.g., 0px 4px 6px rgba(0, 0, 0, 0.1)"
+        />
+      </div>
+
+      <!-- Transition Control -->
+      <div class="mb-3">
+        <label for="btn-transition" class="form-label">Transition:</label>
+        <input
+          id="btn-transition"
+          type="text"
+          class="form-control"
+          [(ngModel)]="btnTransition"
+          placeholder="e.g., all 0.3s ease"
+        />
+      </div>
+
+      <!-- Hover Color Control -->
+      <div class="mb-3">
+        <label for="btn-hover-color" class="form-label">Hover Text Color:</label>
+        <input
+          id="btn-hover-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnHoverColor"
+        />
+      </div>
+
+      <!-- Active Color Control -->
+      <div class="mb-3">
+        <label for="btn-active-color" class="form-label">Active Text Color:</label>
+        <input
+          id="btn-active-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnActiveColor"
+        />
+      </div>
+
+      <!-- Active Background Control -->
+      <div class="mb-3">
+        <label for="btn-active-bg" class="form-label">Active Background:</label>
+        <input
+          id="btn-active-bg"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnActiveBg"
+        />
+      </div>
+
+      <!-- Active Border Color Control -->
+      <div class="mb-3">
+        <label for="btn-active-border-color" class="form-label">Active Border Color:</label>
+        <input
+          id="btn-active-border-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnActiveBorderColor"
+        />
+      </div>
+
+      <!-- Disabled Text Color Control -->
+      <div class="mb-3">
+        <label for="btn-disabled-color" class="form-label">Disabled Text Color:</label>
+        <input
+          id="btn-disabled-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnDisabledColor"
+        />
+      </div>
+
+      <!-- Disabled Border Color Control -->
+      <div class="mb-3">
+        <label for="btn-disabled-border-color" class="form-label">Disabled Border Color:</label>
+        <input
+          id="btn-disabled-border-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnDisabledBorderColor"
+        />
+      </div>
+
+      <!-- Hover Background Control -->
+      <div class="mb-3">
+        <label for="btn-hover-bg" class="form-label">Hover Background:</label>
+        <input
+          id="btn-hover-bg"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnHoverBg"
+        />
+      </div>
+
+      <!-- Active Shadow Control -->
+      <div class="mb-3">
+        <label for="btn-active-shadow" class="form-label">Active Shadow:</label>
+        <input
+          id="btn-active-shadow"
+          type="text"
+          class="form-control"
+          [(ngModel)]="btnActiveShadow"
+          placeholder="e.g., inset 0 3px 5px rgba(0, 0, 0, 0.125)"
+        />
+      </div>
+
+      <!-- Disabled Background Control -->
+      <div class="mb-3">
+        <label for="btn-disabled-bg" class="form-label">Disabled Background:</label>
+        <input
+          id="btn-disabled-bg"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnDisabledBg"
+        />
+      </div>
+
+      <!-- Link Hover Color Control -->
+      <div class="mb-3">
+        <label for="btn-link-hover-color" class="form-label">Link Hover Color:</label>
+        <input
+          id="btn-link-hover-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnLinkHoverColor"
+        />
+      </div>
+
+      <!-- Link Disabled Color Control -->
+      <div class="mb-3">
+        <label for="btn-link-disabled-color" class="form-label">Link Disabled Color:</label>
+        <input
+          id="btn-link-disabled-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="btnLinkDisabledColor"
+        />
+      </div>
+    </div>
+
+    <!-- Preview Area -->
+    <div class="col-md-8 col-lg-9 p-4">
+      <h2 class="text-secondary mb-4">Live Preview</h2>
+      <div class="preview-area">
+        <button type="button" class="btn btn-primary me-2">Primary</button>
+        <button type="button" class="btn btn-secondary me-2">Secondary</button>
+        <button type="button" class="btn btn-success me-2">Success</button>
+        <button type="button" class="btn btn-danger me-2">Danger</button>
+        <button type="button" class="btn btn-warning me-2">Warning</button>
+        <button type="button" class="btn btn-info me-2">Info</button>
+        <button type="button" class="btn btn-light me-2">Light</button>
+        <button type="button" class="btn btn-dark me-2">Dark</button>
+        <button type="button" class="btn btn-link">Link</button>
+        <hr />
+        <!-- <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">
+          Secondary
+        </button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-light">Light</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button> -->
+      </div>
+    </div>
+  </div>
+</div>

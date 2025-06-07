@@ -1,17 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CardComponent } from './componentrs/card.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [FormsModule, CommonModule, CardComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-test',
+  imports: [FormsModule, CommonModule],
+  templateUrl: './test.component.html',
+  styleUrl: './test.component.scss'
 })
-export class AppComponent {
-  // Existing Variables
-  title = 'demo';
+export class TestComponent {
   btnPaddingY = 0.5; // Default vertical padding
   btnPaddingX = 1; // Default horizontal padding
   btnFontFamily = 'Arial, sans-serif'; // Default font family

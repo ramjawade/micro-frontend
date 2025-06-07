@@ -1,0 +1,214 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-4 p-4">
+    <div
+      class="card"
+      [style.--dj-card-spacer-y]="cardSpacerY + 'rem'"
+      [style.--dj-card-spacer-x]="cardSpacerX + 'rem'"
+      [style.--dj-card-title-color]="cardTitleColor"
+      [style.--dj-card-title-spacer-y]="cardTitleSpacerY + 'rem'"
+      [style.--dj-card-subtitle-color]="cardSubtitleColor"
+      [style.--dj-card-border-width]="cardBorderWidth + 'px'"
+      [style.--dj-card-border-color]="cardBorderColor"
+      [style.--dj-card-border-radius]="cardBorderRadius + 'rem'"
+      [style.--dj-card-inner-border-radius]="cardInnerBorderRadius + 'rem'"
+      [style.--dj-card-bg]="cardBg"
+      [style.--dj-card-box-shadow]="cardBoxShadow"
+      [style.--dj-card-cap-padding-y]="cardCapPaddingY + 'rem'"
+      [style.--dj-card-cap-padding-x]="cardCapPaddingX + 'rem'"
+      [style.--dj-card-cap-bg]="cardCapBg"
+      [style.--dj-card-cap-color]="cardCapColor"
+      [style.--dj-card-height]="cardHeight"
+      [style.--dj-card-color]="cardColor"
+      [style.--dj-card-img-overlay-padding]="cardImgOverlayPadding + 'rem'"
+      [style.--dj-card-group-margin]="cardGroupMargin + 'rem'"
+    >
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h5 class="card-title">Card Title</h5>
+        <h6 class="card-subtitle mb-2">Card Subtitle</h6>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+      <div class="card-footer">Footer</div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="controls">
+      <div class="mb-3">
+        <label for="card-spacer-y" class="form-label">Card Spacer Y</label>
+        <input
+          id="card-spacer-y"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardSpacerY"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-spacer-x" class="form-label">Card Spacer X</label>
+        <input
+          id="card-spacer-x"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardSpacerX"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-title-color" class="form-label"
+          >Card Title Color</label
+        >
+        <input
+          id="card-title-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardTitleColor"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-subtitle-color" class="form-label"
+          >Card Subtitle Color</label
+        >
+        <input
+          id="card-subtitle-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardSubtitleColor"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-border-width" class="form-label"
+          >Card Border Width</label
+        >
+        <input
+          id="card-border-width"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardBorderWidth"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-border-color" class="form-label"
+          >Card Border Color</label
+        >
+        <input
+          id="card-border-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardBorderColor"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-border-radius" class="form-label"
+          >Card Border Radius</label
+        >
+        <input
+          id="card-border-radius"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardBorderRadius"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-title-spacer-y" class="form-label">Card Title Spacer Y</label>
+        <input
+          id="card-title-spacer-y"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardTitleSpacerY"
+          step="0.01"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-inner-border-radius" class="form-label">Card Inner Border Radius</label>
+        <input
+          id="card-inner-border-radius"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardInnerBorderRadius"
+          step="0.01"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-cap-padding-y" class="form-label">Card Cap Padding Y</label>
+        <input
+          id="card-cap-padding-y"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardCapPaddingY"
+          step="0.01"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-cap-padding-x" class="form-label">Card Cap Padding X</label>
+        <input
+          id="card-cap-padding-x"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardCapPaddingX"
+          step="0.01"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-cap-bg" class="form-label">Card Cap Background</label>
+        <input
+          id="card-cap-bg"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardCapBg"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-cap-color" class="form-label">Card Cap Color</label>
+        <input
+          id="card-cap-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardCapColor"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-height" class="form-label">Card Height</label>
+        <input
+          id="card-height"
+          type="text"
+          class="form-control"
+          [(ngModel)]="cardHeight"
+          placeholder="auto or e.g. 300px"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-color" class="form-label">Card Text Color</label>
+        <input
+          id="card-color"
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="cardColor"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-img-overlay-padding" class="form-label">Card Img Overlay Padding</label>
+        <input
+          id="card-img-overlay-padding"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardImgOverlayPadding"
+          step="0.01"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="card-group-margin" class="form-label">Card Group Margin</label>
+        <input
+          id="card-group-margin"
+          type="number"
+          class="form-control"
+          [(ngModel)]="cardGroupMargin"
+          step="0.01"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

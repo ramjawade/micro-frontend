@@ -1,11 +1,108 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-
 @import './variable.scss';
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss'
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+:root {
+  --dj-btn-padding-x: 0.75rem;
+  --dj-btn-padding-y: 0.375rem;
+  --dj-btn-font-family: #{$btn-font-family};
+  --dj-btn-font-weight: #{$btn-font-weight};
+  --dj-btn-line-height: #{$btn-line-height};
+  --dj-btn-color: #{$btn-color};
+  --dj-btn-bg: transparent;
+  --dj-btn-border-width: #{$btn-border-width};
+  --dj-btn-border-color: transparent;
+  --dj-btn-border-radius: #{$btn-border-radius};
+  --dj-btn-hover-border-color: transparent;
+  --dj-btn-box-shadow: #{$btn-box-shadow};
+  --dj-btn-disabled-opacity: #{$btn-disabled-opacity};
+  --dj-btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--dj-btn-focus-shadow-rgb), 0.5);
+
+  /* New Variables */
+  --dj-btn-hover-color: #ffffff;
+  --dj-btn-active-color: #ffffff;
+  --dj-btn-active-bg: #007bff;
+  --dj-btn-active-border-color: #0056b3;
+  --dj-btn-disabled-color: #6c757d;
+  --dj-btn-disabled-border-color: #6c757d;
+
+  /* Missing Variables */
+  --dj-btn-hover-bg: #e9ecef; /* Default hover background */
+  --dj-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); /* Default active shadow */
+  --dj-btn-disabled-bg: #e9ecef; /* Default disabled background */
+  --dj-btn-link-hover-color: #0056b3; /* Default link hover color */
+  --dj-btn-link-disabled-color: #6c757d; /* Default link disabled color */
+  --dj-btn-link-focus-shadow-rgb: 38, 143, 255; /* Default link focus shadow RGB */
+  --dj-btn-link-color: #0d6efd; /* Default link color */
+  --dj-btn-transition: all 0.2s ease-in-out; /* Default transition */
+}
+
+.btn {
+  padding: var(--dj-btn-padding-y) var(--dj-btn-padding-x) !important;
+  font-family: var(--dj-btn-font-family);
+  font-weight: var(--dj-btn-font-weight);
+  line-height: var(--dj-btn-line-height);
+  color: var(--dj-btn-color);
+  border: var(--dj-btn-border-width) solid var(--dj-btn-border-color);
+
+  @include border-radius(var(--dj-btn-border-radius));
+  @include box-shadow(var(--dj-btn-box-shadow));
+  @include transition(var(--dj-btn-transition));
+
+  &:hover {
+    color: var(--dj-btn-hover-color);
+    background-color: var(--dj-btn-hover-bg);
+    border-color: var(--dj-btn-hover-border-color);
+  }
+
+  &:focus-visible {
+    color: var(--dj-btn-hover-color);
+    @include gradient-bg(var(--dj-btn-hover-bg));
+    border-color: var(--dj-btn-hover-border-color);
+    outline: 0;
+    box-shadow: var(--dj-btn-box-shadow), var(--dj-btn-focus-box-shadow);
+  }
+
+  &:active,
+  &.active {
+    color: var(--dj-btn-active-color);
+    background-color: var(--dj-btn-active-bg);
+    border-color: var(--dj-btn-active-border-color);
+    @include box-shadow(var(--dj-btn-active-shadow));
+  }
+
+  &:disabled,
+  &.disabled {
+    color: var(--dj-btn-disabled-color);
+    background-color: var(--dj-btn-disabled-bg);
+    border-color: var(--dj-btn-disabled-border-color);
+    opacity: var(--dj-btn-disabled-opacity);
+    @include box-shadow(none);
+  }
+}
+
+.btn-link {
+  font-weight: var(--dj-btn-font-weight);
+  color: var(--dj-btn-link-color);
+  background-color: var(--dj-btn-bg);
+  border-color: var(--dj-btn-border-color);
+
+  &:hover {
+    color: var(--dj-btn-link-hover-color);
+  }
+
+  &:disabled {
+    color: var(--dj-btn-link-disabled-color);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 #{$btn-focus-width} rgba(var(--dj-btn-link-focus-shadow-rgb), 0.5);
+  }
+}

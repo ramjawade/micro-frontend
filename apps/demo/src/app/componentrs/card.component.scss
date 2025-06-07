@@ -1,0 +1,67 @@
+@import "../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins";
+:root {
+  --dj-card-spacer-y: 1rem;
+  --dj-card-spacer-x: 1rem;
+  --dj-card-title-spacer-y: 0.5rem;
+  --dj-card-title-color: #000;
+  --dj-card-subtitle-color: #6c757d;
+  --dj-card-border-width: 1px;
+  --dj-card-border-color: #dee2e6;
+  --dj-card-border-radius: 0.25rem;
+  --dj-card-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --dj-card-inner-border-radius: 0.25rem;
+  --dj-card-cap-padding-y: 0.75rem;
+  --dj-card-cap-padding-x: 1.25rem;
+  --dj-card-cap-bg: #f8f9fa;
+  --dj-card-cap-color: #212529;
+  --dj-card-height: auto;
+  --dj-card-color: #212529;
+  --dj-card-bg: #fff;
+  --dj-card-img-overlay-padding: 1rem;
+  --dj-card-group-margin: 0.75rem;
+}
+
+.card {
+  padding: var(--dj-card-spacer-y) var(--dj-card-spacer-x);
+  color: var(--dj-card-color);
+  background-color: var(--dj-card-bg);
+  border: var(--dj-card-border-width) solid var(--dj-card-border-color);
+  @include border-radius(var(--dj-card-border-radius));
+  @include box-shadow(var(--dj-card-box-shadow));
+
+  .card-title {
+    margin-bottom: var(--dj-card-title-spacer-y);
+    color: var(--dj-card-title-color);
+  }
+
+  .card-subtitle {
+    margin-top: calc(-0.5 * var(--dj-card-title-spacer-y));
+    margin-bottom: 0;
+    color: var(--dj-card-subtitle-color);
+  }
+
+  .card-header {
+    padding: var(--dj-card-cap-padding-y) var(--dj-card-cap-padding-x);
+    color: var(--dj-card-cap-color);
+    background-color: var(--dj-card-cap-bg);
+    border-bottom: var(--dj-card-border-width) solid var(--dj-card-border-color);
+  }
+
+  .card-footer {
+    padding: var(--dj-card-cap-padding-y) var(--dj-card-cap-padding-x);
+    color: var(--dj-card-cap-color);
+    background-color: var(--dj-card-cap-bg);
+    border-top: var(--dj-card-border-width) solid var(--dj-card-border-color);
+  }
+
+  .card-img-overlay {
+    padding: var(--dj-card-img-overlay-padding);
+    @include border-radius(var(--dj-card-inner-border-radius));
+  }
+
+  .card-group > .card {
+    margin-bottom: var(--dj-card-group-margin);
+  }
+}
