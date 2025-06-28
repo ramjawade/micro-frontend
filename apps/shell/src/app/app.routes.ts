@@ -11,6 +11,11 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('shop/Routes').then((m) => m!.remoteRoutes),
   },
   {
+    path: 'map',
+    loadComponent: () =>
+      import('@micro-frontend/map').then((m) => m!.MapComponent),
+  },
+  {
     path: '',
     component: HomeComponent,
   },

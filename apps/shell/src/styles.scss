@@ -1,23 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body {
-    height: 100vh;
-    width: 100%;
+html,
+body {
+  height: 100vh;
+  width: 100%;
 }
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
 }
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Poppins', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
 }
 
-
-@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
+@import '../../../node_modules/ol/ol.css';
+@import './scss/map.scss'; 
 /* Custom styles */
