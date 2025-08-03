@@ -4,8 +4,8 @@ export class PanZoomControl extends Control {
   constructor(opt_options?: any) {
     const options = opt_options || {};
     const button = document.createElement('button');
-    button.innerHTML = '<i class="bi bi-house"></i>';
-    button.className = 'btn btn-primary';
+    button.innerHTML = '<i class="bi bi-house opacity-100 z-3"></i>';
+    button.className = 'btn border border-secondary z-1 bg-body-tertiary';
     const element = document.createElement('div');
     element.className = 'ol-pan-zoom';
     element.appendChild(button);

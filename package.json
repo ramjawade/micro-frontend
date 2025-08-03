@@ -2,7 +2,9 @@
   "name": "@micro-frontend/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:all": "nx serve shell --devRemotes=cart,shop"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~19.1.0",
@@ -56,6 +58,7 @@
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.19.0"
+    "typescript-eslint": "^8.19.0",
+    "@types/ol": "^6.5.3"
   }
 }

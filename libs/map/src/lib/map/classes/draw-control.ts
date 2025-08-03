@@ -11,13 +11,9 @@ export class DrawControl extends Control {
   <label class="btn btn-outline-primary" for="vbtn-radio2"><i class="bi bi-app"></i></label>
   <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
   <label class="btn btn-outline-primary" for="vbtn-radio3"><i class="bi bi-pentagon"></i></label>
-   <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio4" autocomplete="off">
+   <input type="radio" class="btn-check" name="vb/tn-radio" id="vbtn-radio4" autocomplete="off">
   <label class="btn btn-outline-primary" for="vbtn-radio4"><i class="bi bi-geo-alt"></i></label>
-</div>`
-    // const button = document.createElement('button');
-    // button.className = 'btn btn-primary';
-    // button.innerHTML = '<i class="bi bi-brush"></i>';
-    // element.appendChild(button);
+</div>`;
     super({ element });
   }
 }
