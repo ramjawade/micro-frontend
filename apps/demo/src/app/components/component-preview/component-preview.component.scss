@@ -1,0 +1,17 @@
+.component-preview {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: white;
+}
+
+.component-preview h6 {
+  margin-bottom: 1rem;
+  color: var(--bs-dark);
+  font-weight: var(--bs-font-weight-bold);
+}
+
+.component-preview.hidden {
+  display: none;
+}

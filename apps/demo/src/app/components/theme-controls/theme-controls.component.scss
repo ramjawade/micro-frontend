@@ -1,0 +1,49 @@
+.control-panel {
+  max-height: 100vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.control-group {
+  background: rgba(0,0,0,0.02);
+  border-radius: var(--bs-border-radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.control-group h6 {
+  font-size: 0.875rem;
+  font-weight: var(--bs-font-weight-bold);
+  margin-bottom: 0.5rem;
+  color: var(--bs-primary);
+}
+
+.color-preview {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+  border: 1px solid var(--bs-border-color);
+}
+
+.range-value {
+  font-size: 0.75rem;
+  color: var(--bs-secondary);
+}
+
+.form-control-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: var(--bs-font-weight-bold);
+  margin-bottom: 0.25rem;
+  color: var(--bs-dark);
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}

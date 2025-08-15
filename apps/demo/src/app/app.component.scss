@@ -1,21 +1,117 @@
-.app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  
-    .row {
-      height: 100%;
-    }
-  
-    .bg-light {
-      height: 100%;
-      overflow-y: auto;
-    }
-  
-    .preview-area {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  }
+body {
+  background-color: var(--bs-light);
+  font-family: var(--bs-font-family-sans-serif);
+  font-size: var(--bs-font-size-base);
+  line-height: var(--bs-line-height-base);
+}
+
+.card {
+  box-shadow: var(--bs-box-shadow);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: var(--bs-transition);
+}
+
+/* Ensure Bootstrap components use CSS custom properties */
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary) !important;
+  border-color: var(--bs-secondary) !important;
+}
+
+.btn-success {
+  background-color: var(--bs-success) !important;
+  border-color: var(--bs-success) !important;
+}
+
+.btn-danger {
+  background-color: var(--bs-danger) !important;
+  border-color: var(--bs-danger) !important;
+}
+
+.btn-warning {
+  background-color: var(--bs-warning) !important;
+  border-color: var(--bs-warning) !important;
+}
+
+.btn-info {
+  background-color: var(--bs-info) !important;
+  border-color: var(--bs-info) !important;
+}
+
+.btn-light {
+  background-color: var(--bs-light) !important;
+  border-color: var(--bs-light) !important;
+}
+
+.btn-dark {
+  background-color: var(--bs-dark) !important;
+  border-color: var(--bs-dark) !important;
+}
+
+.alert-success {
+  background-color: var(--bs-success) !important;
+  border-color: var(--bs-success) !important;
+}
+
+.alert-danger {
+  background-color: var(--bs-danger) !important;
+  border-color: var(--bs-danger) !important;
+}
+
+.alert-warning {
+  background-color: var(--bs-warning) !important;
+  border-color: var(--bs-warning) !important;
+}
+
+.alert-info {
+  background-color: var(--bs-info) !important;
+  border-color: var(--bs-info) !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--bs-primary) !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--bs-secondary) !important;
+}
+
+.badge.bg-success {
+  background-color: var(--bs-success) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--bs-danger) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--bs-warning) !important;
+}
+
+.badge.bg-info {
+  background-color: var(--bs-info) !important;
+}
+
+.progress-bar {
+  background-color: var(--bs-primary) !important;
+}
+
+.navbar-brand {
+  color: var(--bs-primary) !important;
+}
+
+.nav-link.active {
+  color: var(--bs-primary) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25) !important;
+}
 

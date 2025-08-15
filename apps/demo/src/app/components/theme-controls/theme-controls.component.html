@@ -1,0 +1,178 @@
+<div class="card control-panel p-3">
+  <h6 class="fw-bold mb-3">Theme Controls</h6>
+  
+  <!-- Color System -->
+  <div class="control-group">
+    <h6>Color System</h6>
+    <div class="mb-2">
+      <label class="form-label">Primary Color <span class="color-preview" [style.background-color]="themeSettings.primaryColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.primaryColor" 
+             (input)="updateColor('primaryColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Secondary Color <span class="color-preview" [style.background-color]="themeSettings.secondaryColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.secondaryColor" 
+             (input)="updateColor('secondaryColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Success Color <span class="color-preview" [style.background-color]="themeSettings.successColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.successColor" 
+             (input)="updateColor('successColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Info Color <span class="color-preview" [style.background-color]="themeSettings.infoColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.infoColor" 
+             (input)="updateColor('infoColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Warning Color <span class="color-preview" [style.background-color]="themeSettings.warningColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.warningColor" 
+             (input)="updateColor('warningColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Danger Color <span class="color-preview" [style.background-color]="themeSettings.dangerColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.dangerColor" 
+             (input)="updateColor('dangerColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Light Color <span class="color-preview" [style.background-color]="themeSettings.lightColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.lightColor" 
+             (input)="updateColor('lightColor', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Dark Color <span class="color-preview" [style.background-color]="themeSettings.darkColor"></span></label>
+      <input type="color" class="form-control form-control-color form-control-sm" 
+             [value]="themeSettings.darkColor" 
+             (input)="updateColor('darkColor', $event)">
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div class="control-group">
+    <h6>Typography</h6>
+    <div class="mb-2">
+      <label class="form-label">Base Font Size <span class="range-value">{{ themeSettings.fontSize }}px</span></label>
+      <input type="range" class="form-range" min="12" max="24" 
+             [value]="themeSettings.fontSize" 
+             (input)="onInputChange('fontSize', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Line Height <span class="range-value">{{ themeSettings.lineHeight }}</span></label>
+      <input type="range" class="form-range" min="1" max="2" step="0.1" 
+             [value]="themeSettings.lineHeight" 
+             (input)="onInputChange('lineHeight', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Font Weight Normal</label>
+      <select class="form-select form-select-sm" 
+              [value]="themeSettings.fontWeightNormal" 
+              (change)="onSelectChange('fontWeightNormal', $event)">
+        <option value="300">300 (Light)</option>
+        <option value="400">400 (Normal)</option>
+        <option value="500">500 (Medium)</option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Font Weight Bold</label>
+      <select class="form-select form-select-sm" 
+              [value]="themeSettings.fontWeightBold" 
+              (change)="onSelectChange('fontWeightBold', $event)">
+        <option value="600">600 (Semi-bold)</option>
+        <option value="700">700 (Bold)</option>
+        <option value="800">800 (Extra-bold)</option>
+        <option value="900">900 (Black)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Spacing & Borders -->
+  <div class="control-group">
+    <h6>Spacing & Borders</h6>
+    <div class="mb-2">
+      <label class="form-label">Border Width <span class="range-value">{{ themeSettings.borderWidth }}px</span></label>
+      <input type="range" class="form-range" min="0" max="5" 
+             [value]="themeSettings.borderWidth" 
+             (input)="onInputChange('borderWidth', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Border Radius <span class="range-value">{{ themeSettings.borderRadius }}px</span></label>
+      <input type="range" class="form-range" min="0" max="20" 
+             [value]="themeSettings.borderRadius" 
+             (input)="onInputChange('borderRadius', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Border Radius Small <span class="range-value">{{ themeSettings.borderRadiusSm }}px</span></label>
+      <input type="range" class="form-range" min="0" max="15" 
+             [value]="themeSettings.borderRadiusSm" 
+             (input)="onInputChange('borderRadiusSm', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Border Radius Large <span class="range-value">{{ themeSettings.borderRadiusLg }}px</span></label>
+      <input type="range" class="form-range" min="0" max="25" 
+             [value]="themeSettings.borderRadiusLg" 
+             (input)="onInputChange('borderRadiusLg', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Spacer Base <span class="range-value">{{ themeSettings.spacer }}px</span></label>
+      <input type="range" class="form-range" min="8" max="32" 
+             [value]="themeSettings.spacer" 
+             (input)="onInputChange('spacer', $event)">
+    </div>
+  </div>
+
+  <!-- Shadows -->
+  <div class="control-group">
+    <h6>Shadows</h6>
+    <div class="mb-2">
+      <label class="form-label">Box Shadow <span class="range-value">{{ themeSettings.boxShadow }}rem</span></label>
+      <input type="range" class="form-range" min="0" max="1" step="0.025" 
+             [value]="themeSettings.boxShadow" 
+             (input)="onInputChange('boxShadow', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Box Shadow Large <span class="range-value">{{ themeSettings.boxShadowLg }}rem</span></label>
+      <input type="range" class="form-range" min="0" max="3" step="0.1" 
+             [value]="themeSettings.boxShadowLg" 
+             (input)="onInputChange('boxShadowLg', $event)">
+    </div>
+  </div>
+
+  <!-- Transitions -->
+  <div class="control-group">
+    <h6>Transitions</h6>
+    <div class="mb-2">
+      <label class="form-label">Transition Duration <span class="range-value">{{ themeSettings.transition }}s</span></label>
+      <input type="range" class="form-range" min="0" max="1" step="0.025" 
+             [value]="themeSettings.transition" 
+             (input)="onInputChange('transition', $event)">
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Transition Timing</label>
+      <select class="form-select form-select-sm" 
+              [value]="themeSettings.transitionTiming" 
+              (change)="onSelectChange('transitionTiming', $event)">
+        <option value="ease">Ease</option>
+        <option value="ease-in">Ease-in</option>
+        <option value="ease-out">Ease-out</option>
+        <option value="ease-in-out">Ease-in-out</option>
+        <option value="linear">Linear</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="control-group">
+    <h6>Actions</h6>
+    <div class="d-flex gap-2">
+      <button class="btn btn-secondary btn-sm w-50" (click)="resetTheme()">Reset All</button>
+      <button class="btn btn-primary btn-sm w-50" (click)="exportCSS()">Export CSS</button>
+    </div>
+  </div>
+</div>

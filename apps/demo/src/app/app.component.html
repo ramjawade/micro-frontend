@@ -1,1 +1,41 @@
-<app-card></app-card>
+<app-header></app-header>
+
+<div class="container-fluid mt-4">
+  <div class="row g-3">
+    
+    <!-- Sidebar Navigation -->
+    <div class="col-lg-3">
+      <app-sidebar (componentSelected)="onComponentSelected($event)"></app-sidebar>
+    </div>
+
+    <!-- Live Preview Panel (Center) -->
+    <div class="col-lg-6">
+      <app-component-preview [activeComponent]="activeComponent"></app-component-preview>
+    </div>
+
+    <!-- Control Panel (Right Side) -->
+    <div class="col-lg-3">
+      <app-theme-controls></app-theme-controls>
+    </div>
+
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Preview Modal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>This modal demonstrates the current theme settings.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
