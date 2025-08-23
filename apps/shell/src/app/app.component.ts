@@ -1,20 +1,37 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { UserService } from '@micro-frontend/shared';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '@micro-frontend/auth';
+import { distinctUntilChanged } from 'rxjs';
+
 @Component({
   imports: [RouterModule, CommonModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   title = 'shell';
   sidebarOpen = true;
-  user!: any;
-  constructor(private userService: UserService) {
-    this.user = this.userService.getUser();
-    console.log('User:', this.user);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  isLoggedIn$ = this.authService.isUserLoggedIn$;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.isLoggedIn$
+      .pipe(distinctUntilChanged())
+      .subscribe(async (loggedIn) => {
+        setTimeout(() => {
+          if (!loggedIn) {
+            this.router.navigateByUrl('login');
+          } else {
+            this.router.navigateByUrl('');
+          }
+        });
+      });
   }
 
   toggleSidebar() {

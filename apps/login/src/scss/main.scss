@@ -1,0 +1,102 @@
+/* ========================================
+   MAIN SCSS FILE - LOGIN APPLICATION
+   ======================================== */
+
+// Import Bootstrap SCSS (with our custom variables)
+@import 'bootstrap/scss/bootstrap';
+
+// Import Bootstrap Icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Import our custom partials
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+@import 'forms';
+@import 'buttons';
+@import 'components';
+@import 'utilities';
+@import 'responsive';
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   ENHANCED BOOTSTRAP OVERRIDES
+   ======================================== */
+
+// Override Bootstrap Variables via CSS
+:root {
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: 102, 126, 234;
+  --bs-secondary: #{$secondary};
+  --bs-border-color: #{$gray-200};
+  --bs-light: #{$gray-100};
+  --bs-border-radius: #{$border-radius-lg};
+  --bs-border-radius-sm: #{$border-radius-sm};
+  --bs-border-radius-lg: #{$border-radius-xl};
+  --bs-focus-ring-color: rgba(102, 126, 234, 0.25);
+  --bs-focus-ring-width: #{$focus-ring-width};
+}
+
+/* ========================================
+   CUSTOM APPLICATION STYLES
+   ======================================== */
+
+// Enhanced Form Components
+.form-control {
+  border-radius: $input-border-radius !important;
+  padding: $spacer * 0.75 $spacer !important;
+  border: $focus-ring-width solid $gray-200 !important;
+  @include transition-base;
+}
+
+.form-control:focus {
+  border-color: $primary !important;
+  box-shadow: 0 0 0 $focus-ring-width rgba($primary, 0.25) !important;
+}
+
+.btn {
+  border-radius: $btn-border-radius !important;
+  @include transition-base;
+}
+
+.btn-primary {
+  @include gradient-primary;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  @include shadow-primary;
+}
+
+/* ========================================
+   RESPONSIVE ENHANCEMENTS
+   ======================================== */
+
+@media (max-width: 576px) {
+  :root {
+    --space-4: 0.875rem;
+    --space-5: 1rem;
+    --space-6: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --space-4: 1.125rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+  }
+}

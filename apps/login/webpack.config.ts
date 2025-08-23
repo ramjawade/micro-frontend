@@ -6,24 +6,20 @@ import config from './module-federation.config';
  * The DTS Plugin can be enabled by setting dts: true
  * Learn more about the DTS Plugin here: https://module-federation.io/configure/dts.html
  */
-// "bootstrap": "^5.3.3",
-//     "bootstrap-icons": "^1.11.3",
 // const sharedLibraries: string[] = ['@micro-frontend/auth'];
 export default withModuleFederation(
   {
     ...config,
-    // If you don't want to share libraries add to the shared array
-    // By not declaring shared function all dependencies will be shared.
     // shared: (name, config) => {
-    //   console.log('name', name);
+    // //   console.log('name', name);
     //   if (sharedLibraries.includes(name)) {
     //     return {
     //       singleton: true,
-    //       strictVersion: false,
+    //       strictVersion: true,
     //       requiredVersion: 'auto',
     //     };
     //   }
-    //   return config;
+    //   return config
     // },
   },
   { dts: false }

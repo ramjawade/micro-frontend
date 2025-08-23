@@ -1,89 +1,94 @@
-<div class="app">
-  <div class="container-fluid">
-    <nav class="navbar bg-body-tertiary">
-      <div
-        class="container-fluid d-flex justify-content-between align-items-center"
-      >
-        <i class="bi bi-grid-3x3-gap me-3 fs-4" (click)="toggleSidebar()"></i>
-        <span class="navbar-brand mb-0 h1">Micro-Frontend</span>
-        <!-- User Avatar -->
-        <span
-          class="ms-auto rounded-circle bg-primary text-white"
-          style="cursor: pointer"
+<div *ngIf="!(isLoggedIn$ | async); else signIn">
+  <router-outlet></router-outlet>
+</div>
+<ng-template #signIn>
+  hello
+  <div class="app">
+    <div class="container-fluid">
+      <nav class="navbar bg-body-tertiary">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
         >
-          DJ
-        </span>
-        <div class="dropdown">
-          <div
-            id="userAvatarDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+          <i class="bi bi-grid-3x3-gap me-3 fs-4" (click)="toggleSidebar()"></i>
+          <span class="navbar-brand mb-0 h1">Micro-Frontend</span>
+          <span
+            class="ms-auto rounded-circle bg-primary text-white"
+            style="cursor: pointer"
           >
-            <span class="ms-3">{{ user.name }}</span>
+            DJ
+          </span>
+          <div class="dropdown">
+            <div
+              id="userAvatarDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="ms-3">John Doe</span>
+            </div>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="userAvatarDropdown"
+            >
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
           </div>
+        </div>
+      </nav>
+      <div class="main row">
+        <div class="col-auto sidebar">
           <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="userAvatarDropdown"
+            class="list-group-flush h-100 list-group d-flex bg-white flex-column"
           >
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li
+              class="list-group-item"
+              routerLink="/"
+              routerLinkActive="bg-primary-subtle"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="bi bi-house"></i>
+              <span class="ms-2" *ngIf="sidebarOpen">Home</span>
+            </li>
+            <li
+              class="list-group-item"
+              routerLink="shop"
+              routerLinkActive="bg-primary-subtle"
+            >
+              <i class="bi bi-bag"></i>
+              <span class="ms-2" *ngIf="sidebarOpen">Shop</span>
+            </li>
+            <li
+              class="list-group-item"
+              routerLink="cart"
+              routerLinkActive="bg-primary-subtle"
+            >
+              <i class="bi bi-bag-check"></i>
+              <span class="ms-2" *ngIf="sidebarOpen">Cart</span>
+            </li>
+            <li
+              class="list-group-item"
+              routerLink="map"
+              routerLinkActive="bg-primary-subtle"
+            >
+              <i class="bi bi-map"></i>
+              <span class="ms-2" *ngIf="sidebarOpen">Map</span>
+            </li>
+            <li
+              class="list-group-item mt-auto"
+              routerLink="settings"
+              routerLinkActive="bg-primary-subtle"
+            >
+              <i class="bi bi-sliders"></i>
+              <span class="ms-2" *ngIf="sidebarOpen">Settings</span>
+            </li>
           </ul>
         </div>
-      </div>
-    </nav>
-    <div class="main row">
-      <div class="col-auto sidebar">
-        <ul
-          class="list-group-flush h-100 list-group d-flex bg-white flex-column"
-        >
-          <li
-            class="list-group-item"
-            routerLink="/"
-            routerLinkActive="bg-primary-subtle"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <i class="bi bi-house"></i>
-            <span class="ms-2" *ngIf="sidebarOpen">Home</span>
-          </li>
-          <li
-            class="list-group-item"
-            routerLink="shop"
-            routerLinkActive="bg-primary-subtle"
-          >
-            <i class="bi bi-bag"></i>
-            <span class="ms-2" *ngIf="sidebarOpen">Shop</span>
-          </li>
-          <li
-            class="list-group-item"
-            routerLink="cart"
-            routerLinkActive="bg-primary-subtle"
-          >
-            <i class="bi bi-bag-check"></i>
-            <span class="ms-2" *ngIf="sidebarOpen">Cart</span>
-          </li>
-          <li
-            class="list-group-item"
-            routerLink="map"
-            routerLinkActive="bg-primary-subtle"
-          >
-            <i class="bi bi-map"></i>
-            <span class="ms-2" *ngIf="sidebarOpen">Map</span>
-          </li>
-          <li
-            class="list-group-item mt-auto"
-            routerLink="settings"
-            routerLinkActive="bg-primary-subtle"
-          >
-            <i class="bi bi-sliders"></i>
-            <span class="ms-2" *ngIf="sidebarOpen">Settings</span>
-          </li>
-        </ul>
-      </div>
-      <div class="col outlet">
-        <router-outlet></router-outlet>
+        <div class="col outlet">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>

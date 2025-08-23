@@ -1,0 +1,133 @@
+/* ========================================
+   SCSS MIXINS & FUNCTIONS
+   ======================================== */
+
+// Gradient Mixins
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+}
+
+@mixin gradient-primary-soft {
+  background: linear-gradient(135deg, $primary-light 0%, $primary 50%, $primary-dark 100%);
+}
+
+@mixin gradient-accent {
+  background: linear-gradient(135deg, $accent 0%, darken($accent, 10%) 100%);
+}
+
+@mixin gradient-glass {
+  background: linear-gradient(135deg, rgba($white, 0.1) 0%, rgba($white, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($white, 0.2);
+}
+
+// Shadow Mixins
+@mixin shadow-primary {
+  box-shadow: $box-shadow-primary;
+}
+
+@mixin shadow-accent {
+  box-shadow: $box-shadow-accent;
+}
+
+@mixin shadow-glass {
+  box-shadow: 0 0.5rem 2rem rgba($white, 0.1);
+}
+
+// Transition Mixins
+@mixin transition-base {
+  transition: all $animation-duration-base $animation-timing;
+}
+
+@mixin transition-fast {
+  transition: all $animation-duration-fast $animation-timing;
+}
+
+@mixin transition-slow {
+  transition: all $animation-duration-slow $animation-timing;
+}
+
+// Hover Effect Mixins
+@mixin hover-lift {
+  @include transition-base;
+  
+  &:hover {
+    transform: translateY(-$spacer * 0.5);
+    box-shadow: $box-shadow-xl;
+  }
+}
+
+@mixin hover-scale {
+  @include transition-base;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin hover-glow {
+  @include transition-base;
+  
+  &:hover {
+    box-shadow: 0 0 2rem rgba($primary, 0.5);
+  }
+}
+
+// Focus State Mixins
+@mixin focus-ring {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 $focus-ring-width rgba($primary, 0.25);
+  }
+}
+
+@mixin focus-ring-enhanced {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 $focus-ring-width rgba($primary, 0.25), 0 0.5rem 1rem rgba($primary, 0.1);
+  }
+}
+
+// Glass Morphism Mixins
+@mixin glass-effect {
+  background: rgba($white, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($white, 0.2);
+}
+
+@mixin glass-effect-strong {
+  background: rgba($white, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($white, 0.2);
+}
+
+// Responsive Mixins
+@mixin responsive-font($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+  font-size: clamp($min-size, 4vw, $max-size);
+}
+
+// Animation Mixins
+@mixin animation-delay($delay) {
+  animation-delay: $delay;
+  animation-fill-mode: both;
+}
+
+@mixin fade-in-up($delay: 0s) {
+  animation: fadeInUp $animation-duration-slow ease-out;
+  @include animation-delay($delay);
+}
+
+@mixin slide-in-left($delay: 0s) {
+  animation: slideInLeft $animation-duration-slow ease-out;
+  @include animation-delay($delay);
+}
+
+@mixin slide-in-right($delay: 0s) {
+  animation: slideInRight $animation-duration-slow ease-out;
+  @include animation-delay($delay);
+}
+
+@mixin scale-in($delay: 0s) {
+  animation: scaleIn $animation-duration-slow ease-out;
+  @include animation-delay($delay);
+}

@@ -1,0 +1,24 @@
+/* ========================================
+   LOGIN COMPONENT - CLEAN BOOTSTRAP DESIGN
+   ======================================== */
+
+// Simple background gradient
+.login-container {
+  background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-dark, #4338ca) 100%);
+  min-height: 100vh;
+}
+
+// Clean card with subtle shadow
+.login-card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+// Gradient text for icon
+.login-icon .bi-person-circle {
+  background: linear-gradient(135deg, var(--bs-primary), var(--bs-info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

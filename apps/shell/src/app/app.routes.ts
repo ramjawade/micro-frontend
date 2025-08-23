@@ -3,6 +3,10 @@ import { HomeComponent } from './components/home/home.component';
 
 export const appRoutes: Route[] = [
   {
+    path: 'login',
+    loadChildren: () => import('login/Routes').then((m) => m!.remoteRoutes),
+  },
+  {
     path: 'cart',
     loadChildren: () => import('cart/Routes').then((m) => m!.remoteRoutes),
   },

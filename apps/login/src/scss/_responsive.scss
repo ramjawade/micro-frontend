@@ -1,0 +1,213 @@
+/* ========================================
+   RESPONSIVE STYLES & MEDIA QUERIES
+   ======================================== */
+
+// Responsive Typography
+@media (max-width: 576px) {
+  html {
+    font-size: 0.875rem;
+  }
+  
+  .login-container {
+    padding: $spacer 0;
+  }
+  
+  .login-card {
+    margin: 0 $spacer * 0.5;
+  }
+
+  .card-body {
+    padding: $spacer * 1.5 !important;
+  }
+
+  .login-icon .bi-person-circle {
+    font-size: $spacer * 3;
+  }
+  
+  .btn {
+    padding: $spacer * 0.5 $spacer * 0.75;
+    font-size: $font-size-sm;
+  }
+  
+  .form-control {
+    height: $spacer * 2.5;
+    padding: $spacer * 0.5 $spacer * 0.75;
+  }
+  
+  .input-group-text {
+    padding: $spacer * 0.5 $spacer * 0.75;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  .login-card {
+    margin: 0 $spacer;
+  }
+  
+  .card-body {
+    padding: $spacer * 2 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .login-card {
+    margin: 0 $spacer * 1.5;
+  }
+  
+  .card-body {
+    padding: $spacer * 3 !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .login-card {
+    margin: 0 $spacer * 2;
+  }
+  
+  .card-body {
+    padding: $spacer * 4 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 1.125rem;
+  }
+  
+  .login-container {
+    padding: $spacer * 2 0;
+  }
+  
+  .login-card {
+    margin: 0 $spacer * 2.5;
+  }
+  
+  .card-body {
+    padding: $spacer * 5 !important;
+  }
+  
+  .login-icon .bi-person-circle {
+    font-size: $spacer * 5;
+  }
+  
+  .btn {
+    padding: $spacer $spacer * 1.5;
+    font-size: $font-size-lg;
+  }
+  
+  .form-control {
+    height: $spacer * 3.5;
+    padding: $spacer $spacer * 1.25;
+  }
+  
+  .input-group-text {
+    padding: $spacer $spacer * 1.25;
+  }
+}
+
+// Landscape Orientation Adjustments
+@media (orientation: landscape) and (max-height: 600px) {
+  .login-container {
+    padding: $spacer 0;
+  }
+  
+  .login-card {
+    margin: $spacer 0;
+  }
+  
+  .card-body {
+    padding: $spacer * 2 !important;
+  }
+  
+  .login-icon .bi-person-circle {
+    font-size: $spacer * 2.5;
+  }
+  
+  .header-section {
+    margin-bottom: $spacer;
+  }
+  
+  .form-section {
+    margin-bottom: $spacer;
+  }
+}
+
+// High DPI Displays
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .login-card {
+    border-width: 0.5px;
+  }
+  
+  .form-control,
+  .input-group-text {
+    border-width: 0.5px;
+  }
+}
+
+// Dark Mode Support
+@media (prefers-color-scheme: dark) {
+  .login-container {
+    background: linear-gradient(135deg, darken($primary, 20%) 0%, darken($primary-dark, 20%) 50%, darken($primary, 30%) 100%);
+  }
+  
+  .login-card {
+    background: rgba($gray-900, 0.98);
+    border-color: rgba($gray-700, 0.3);
+  }
+  
+  .form-control {
+    background: rgba($gray-800, 0.9);
+    color: $gray-100;
+    
+    &:focus {
+      background: rgba($gray-800, 1);
+    }
+  }
+  
+  .input-group-text {
+    background: $gray-800;
+    border-color: $gray-600;
+    color: $gray-300;
+  }
+  
+  .text-dark {
+    color: $gray-100 !important;
+  }
+  
+  .text-muted {
+    color: $gray-400 !important;
+  }
+}
+
+// Print Styles
+@media print {
+  .login-container {
+    background: none !important;
+    min-height: auto;
+    padding: 0;
+  }
+  
+  .login-card {
+    box-shadow: none !important;
+    border: 1px solid $gray-300 !important;
+    background: $white !important;
+  }
+  
+  .btn {
+    border: 1px solid $gray-300 !important;
+    background: $white !important;
+    color: $gray-900 !important;
+  }
+  
+  .form-control {
+    border: 1px solid $gray-300 !important;
+    background: $white !important;
+    color: $gray-900 !important;
+  }
+  
+  .input-group-text {
+    background: $gray-100 !important;
+    border: 1px solid $gray-300 !important;
+    color: $gray-700 !important;
+  }
+}

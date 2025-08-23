@@ -1,0 +1,200 @@
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+// Login Container
+.login-container {
+  @include gradient-primary-soft;
+  min-height: 100vh;
+  padding: $spacer * 1.5 0;
+  position: relative;
+  overflow: hidden;
+  
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($white, 0.1) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($accent, 0.1) 0%, transparent 70%);
+    animation: float 25s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+}
+
+// Login Card
+.login-card {
+  @include glass-effect-strong;
+  border-radius: $card-border-radius;
+  @include transition-slow;
+  @include shadow-primary;
+  border: 1px solid rgba($white, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle border glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $card-border-radius;
+    padding: 2px;
+    background: linear-gradient(135deg, $primary, $accent);
+    mask: linear-gradient($white 0 0) content-box, linear-gradient($white 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    @include transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-$spacer * 0.5);
+    box-shadow: $box-shadow-2xl, 0 0 3rem rgba($primary, 0.3);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// Login Icon
+.login-icon {
+  .bi-person-circle {
+    @include gradient-primary-soft;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: $spacer * 4;
+    animation: pulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 0.5rem 1rem rgba($primary, 0.3));
+  }
+}
+
+// Card Body
+.card-body {
+  position: relative;
+  z-index: 1;
+}
+
+// Divider Styling
+hr {
+  border-color: rgba($gray-300, 0.5);
+  opacity: 0.7;
+}
+
+// Social Login Section
+.position-relative .bg-white {
+  background: rgba($white, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-radius: $border-radius-lg;
+  padding: $spacer * 0.25 $spacer * 0.5;
+}
+
+// Social Login Divider
+.social-divider {
+  position: relative;
+  text-align: center;
+  margin: $spacer * 1.5 0;
+  
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $gray-300, transparent);
+  }
+  
+  .divider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    padding: 0 $spacer;
+    color: $gray-600;
+    font-size: $font-size-sm;
+    border-radius: $border-radius;
+  }
+}
+
+// Social Login Buttons Container
+.social-buttons {
+  .btn {
+    @include hover-scale;
+  }
+}
+
+// Form Section
+.form-section {
+  margin-bottom: $spacer * 1.5;
+}
+
+// Header Section
+.header-section {
+  text-align: center;
+  margin-bottom: $spacer * 2;
+  
+  .welcome-title {
+    font-weight: 700;
+    color: $gray-800;
+    margin-bottom: $spacer;
+  }
+  
+  .welcome-subtitle {
+    color: $gray-600;
+    font-size: $font-size-base;
+  }
+}
+
+// Footer Section
+.footer-section {
+  text-align: center;
+  margin-top: $spacer * 1.5;
+  
+  .signup-link {
+    color: $primary;
+    text-decoration: none;
+    font-weight: 600;
+    @include transition-base;
+    
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Forgot Password Link
+.forgot-password {
+  color: $primary;
+  text-decoration: none;
+  font-weight: 600;
+  @include transition-base;
+  
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+}
+
+// Remember Me Section
+.remember-me-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacer * 1.5;
+}

@@ -1,0 +1,35 @@
+/* ========================================
+   GLOBAL STYLES - LOGIN APPLICATION
+   ======================================== */
+
+// Define custom Bootstrap variables
+$primary: #667eea;
+$primary-dark: #4338ca;
+$border-radius: 1rem;
+$border-radius-lg: 1rem;
+$card-border-radius: 1rem;
+$btn-border-radius: 0.75rem;
+$input-border-radius: 0.75rem;
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Import Bootstrap Icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Global overrides for cleaner look
+:root {
+  --bs-primary-dark: #{$primary-dark};
+}
+
+.form-control, .input-group-text {
+  border-radius: #{$input-border-radius};
+}
+
+.btn {
+  border-radius: #{$btn-border-radius};
+}
+
+.card {
+  border-radius: #{$card-border-radius};
+}

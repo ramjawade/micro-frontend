@@ -1,0 +1,118 @@
+/* ========================================
+   ANIMATIONS & KEYFRAMES
+   ======================================== */
+
+// Keyframe Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY($spacer * 1.25);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shine {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+// Animation Classes
+.fade-in-up {
+  animation: fadeInUp $animation-duration-slow ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft $animation-duration-slow ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight $animation-duration-slow ease-out;
+}
+
+.scale-in {
+  animation: scaleIn $animation-duration-slow ease-out;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+// Staggered Animation Delays
+.animation-delay-1 { animation-delay: 0.1s; }
+.animation-delay-2 { animation-delay: 0.2s; }
+.animation-delay-3 { animation-delay: 0.3s; }
+.animation-delay-4 { animation-delay: 0.4s; }
+.animation-delay-5 { animation-delay: 0.5s; }
+
+// Animation Fill Modes
+.animation-fill-both { animation-fill-mode: both; }
+.animation-fill-forwards { animation-fill-mode: forwards; }
+.animation-fill-backwards { animation-fill-mode: backwards; }
+
+// Animation Timing Functions
+.animation-ease-out { animation-timing-function: ease-out; }
+.animation-ease-in { animation-timing-function: ease-in; }
+.animation-ease-in-out { animation-timing-function: ease-in-out; }
+.animation-cubic-bezier { animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }

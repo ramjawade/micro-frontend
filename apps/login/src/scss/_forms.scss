@@ -1,0 +1,187 @@
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+// Form Controls
+.form-control {
+  border: $focus-ring-width solid $gray-200;
+  border-radius: $input-border-radius;
+  padding: $spacer * 0.75 $spacer;
+  font-size: $font-size-base;
+  height: $spacer * 3;
+  @include transition-base;
+  @include glass-effect;
+
+  &:focus {
+    border-color: $primary;
+    @include focus-ring-enhanced;
+    background: rgba($white, 1);
+    transform: translateY(-1px);
+  }
+  
+  &:hover {
+    border-color: $primary-light;
+    background: rgba($white, 0.95);
+  }
+}
+
+// Input Groups
+.input-group {
+  position: relative;
+  
+  // Ensure proper spacing and alignment
+  .input-group-text {
+    border: $focus-ring-width solid $gray-200;
+    border-right: none;
+    background: $gray-100;
+    border-radius: $input-border-radius 0 0 $input-border-radius;
+    @include transition-base;
+    position: relative;
+    z-index: 2;
+    margin-right: -$focus-ring-width; // Remove gap between icon and input
+
+    .bi {
+      font-size: $font-size-lg;
+      color: $gray-500;
+      @include transition-base;
+    }
+  }
+
+  .form-control {
+    border-left: none;
+    border-radius: 0 $input-border-radius $input-border-radius 0;
+    position: relative;
+    z-index: 2;
+    margin-left: -$focus-ring-width; // Remove gap between icon and input
+  }
+  
+  // Hover state for the entire input group
+  &:hover {
+    .input-group-text {
+      border-color: $primary-light;
+      background-color: rgba($primary-light, 0.05);
+      
+      .bi {
+        color: $primary-light;
+      }
+    }
+    
+    .form-control {
+      border-color: $primary-light;
+    }
+  }
+}
+
+// Enhanced focus state for input groups - FIXED to cover entire input group
+.input-group:focus-within {
+  position: relative;
+  border-radius: $input-border-radius;
+  transform: translateY(-1px);
+  @include transition-base;
+  
+  // Create a unified outline that covers the entire input group
+  &::before {
+    content: '';
+    position: absolute;
+    top: -$focus-ring-width;
+    left: -$focus-ring-width;
+    right: -$focus-ring-width;
+    bottom: -$focus-ring-width;
+    border: $focus-ring-width solid $primary;
+    border-radius: $input-border-radius;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 0 $focus-ring-width rgba($primary, 0.25), 0 0.5rem 1rem rgba($primary, 0.1);
+  }
+
+  .input-group-text {
+    border-color: $primary;
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+    transform: scale(1.05);
+    position: relative;
+    z-index: 2;
+    @include transition-base;
+  }
+
+  .form-control {
+    border-color: $primary;
+    box-shadow: none;
+    background: rgba($white, 1);
+    position: relative;
+    z-index: 2;
+    @include transition-base;
+  }
+  
+  // Enhanced glow effect for the entire input group
+  &::after {
+    content: '';
+    position: absolute;
+    top: -$focus-ring-width * 2;
+    left: -$focus-ring-width * 2;
+    right: -$focus-ring-width * 2;
+    bottom: -$focus-ring-width * 2;
+    background: radial-gradient(circle, rgba($primary, 0.1) 0%, transparent 70%);
+    border-radius: $input-border-radius;
+    pointer-events: none;
+    z-index: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+// Form Labels
+.form-label {
+  color: $gray-700;
+  font-size: $font-size-sm;
+  margin-bottom: $spacer * 0.5;
+  font-weight: 600;
+  @include transition-base;
+  
+  &:hover {
+    color: $primary;
+  }
+}
+
+// Form Check Inputs
+.form-check-input {
+  @include focus-ring;
+
+  &:checked {
+    background-color: $primary;
+    border-color: $primary;
+    animation: scaleIn $animation-duration-fast ease-out;
+  }
+}
+
+// Form Check Labels
+.form-check-label {
+  color: $gray-600;
+  @include transition-base;
+  
+  &:hover {
+    color: $gray-700;
+  }
+}
+
+// Invalid Feedback
+.invalid-feedback {
+  color: $danger;
+  font-size: $font-size-sm;
+  margin-top: $spacer * 0.25;
+}
+
+// Form Validation States
+.form-control.is-invalid {
+  border-color: $danger;
+  
+  &:focus {
+    box-shadow: 0 0 0 $focus-ring-width rgba($danger, 0.25);
+  }
+}
+
+.input-group.is-invalid {
+  .input-group-text {
+    border-color: $danger;
+    color: $danger;
+  }
+}

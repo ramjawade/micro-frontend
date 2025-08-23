@@ -4,10 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
+  user = {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+  };
   getUser() {
-    return {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-    };
+    return this.user;
+  }
+  
+  setUser(user: any) {
+    this.user = user;
   }
 }

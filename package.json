@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:all": "nx serve shell --devRemotes=cart,shop",
+    "start:all": "nx serve shell --devRemotes=card,shop,login",
     "start:demo": "nx serve demo"
   },
   "private": true,
@@ -46,6 +46,7 @@
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
+    "@types/ol": "^6.5.3",
     "@typescript-eslint/utils": "^8.19.0",
     "angular-eslint": "^19.0.2",
     "eslint": "^9.8.0",
@@ -59,7 +60,6 @@
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.19.0",
-    "@types/ol": "^6.5.3"
+    "typescript-eslint": "^8.19.0"
   }
 }
