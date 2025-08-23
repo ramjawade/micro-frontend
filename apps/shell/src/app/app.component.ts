@@ -37,4 +37,8 @@ export class AppComponent implements OnInit {
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

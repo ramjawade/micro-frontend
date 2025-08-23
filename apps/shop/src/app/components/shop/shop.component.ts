@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserService } from '@micro-frontend/shared';
 
 @Component({
   selector: 'app-shop',
@@ -35,10 +34,8 @@ export class ShopComponent {
 
   showFilters = true;
   filteredProducts = [...this.products];
-  user!: any;
 
-  constructor(private userService: UserService) {
-    this.user = userService.getUser();
+  constructor() {
   }
 
   toggleFilters(): void {

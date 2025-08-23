@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@micro-frontend/auth';
 
@@ -16,29 +21,32 @@ export class LoginComponent implements OnInit {
   authService = inject(AuthService);
   router = inject(Router);
   fb = inject(FormBuilder);
-  
+
   constructor() {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
-      password: ['', [Validators.required ]],
-      rememberMe: [false]
+      password: ['', [Validators.required]],
+      rememberMe: [false],
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.checkCredentials(this.loginForm.value.email, this.loginForm.value.password);
+      this.authService.checkCredentials(
+        this.loginForm.value.email,
+        this.loginForm.value.password
+      );
       this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
         if (isLoggedIn) {
-          this.router.navigate(['/']);
+          this.router.navigateByUrl('/');
         }
       });
       this.loginForm.reset({
         email: '',
         password: '',
-        rememberMe: false
+        rememberMe: false,
       });
     } else {
       this.loginForm.markAllAsTouched();
@@ -56,7 +64,9 @@ export class LoginComponent implements OnInit {
     const field = this.loginForm.get(fieldName);
     if (field && field.errors && field.touched) {
       if (field.errors['required']) {
-        return `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+        return `${
+          fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
+        } is required`;
       }
       if (field.errors['email']) {
         return 'Please enter a valid email address';
