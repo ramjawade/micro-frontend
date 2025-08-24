@@ -22,8 +22,6 @@ export class LoginComponent implements OnInit {
   router = inject(Router);
   fb = inject(FormBuilder);
 
-  constructor() {}
-
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],

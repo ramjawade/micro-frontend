@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '@micro-frontend/auth';
 
@@ -11,7 +11,7 @@ import { AuthService } from '@micro-frontend/auth';
   <router-outlet></router-outlet>
   `,
 })
-export class RemoteEntryComponent {
+export class RemoteEntryComponent implements OnInit {
   authService = inject(AuthService);
   router = inject(Router);
 
