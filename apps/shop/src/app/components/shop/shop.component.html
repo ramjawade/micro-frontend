@@ -1,79 +1,288 @@
 <div class="shop">
   <div class="container-fluid mt-4">
+    <!-- Header Section -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="h2 mb-0">🛍️ Tech Shop</h1>
+          <div class="d-flex align-items-center gap-3">
+            <button 
+              class="btn btn-outline-primary position-relative" 
+              (click)="toggleFilters()"
+            >
+              <i class="bi bi-funnel"></i> Filters
+            </button>
+            <button 
+              class="btn btn-primary position-relative" 
+              data-bs-toggle="offcanvas" 
+              data-bs-target="#cartOffcanvas"
+            >
+              <i class="bi bi-cart3"></i> Cart
+              <span *ngIf="cartItems.length > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ cartItems.length }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <!-- Filter Section -->
       <div class="col-lg-3" *ngIf="showFilters">
-        <div class="card">
+        <div class="card shadow-sm">
           <div class="card-body">
-            <h5 class="card-title">Filters</h5>
+            <h5 class="card-title d-flex align-items-center gap-2">
+              <i class="bi bi-funnel"></i> Filters
+            </h5>
+            
+            <!-- Search -->
+            <div class="mb-3">
+              <label for="searchInput" class="form-label">Search Products</label>
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Search by name, category..."
+                [(ngModel)]="filters.searchTerm"
+                (input)="applyFilters()"
+              />
+            </div>
+
+            <!-- Price Range -->
+            <div class="mb-3">
+              <span class="form-label">Price Range</span>
+              <div class="row g-2">
+                <div class="col-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Min"
+                    [(ngModel)]="filters.minPrice"
+                    (input)="applyFilters()"
+                  />
+                </div>
+                <div class="col-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Max"
+                    [(ngModel)]="filters.maxPrice"
+                    (input)="applyFilters()"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="mb-3">
+              <span class="form-label">Categories</span>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="filter1"
+                  [(ngModel)]="filters.category1"
+                  (change)="applyFilters()"
+                />
+                <label class="form-check-label" for="filter1">
+                  {{ getCategoryDisplayName('category1') }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="filter2"
+                  [(ngModel)]="filters.category2"
+                  (change)="applyFilters()"
+                />
+                <label class="form-check-label" for="filter2">
+                  {{ getCategoryDisplayName('category2') }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="filter3"
+                  [(ngModel)]="filters.category3"
+                  (change)="applyFilters()"
+                />
+                <label class="form-check-label" for="filter3">
+                  {{ getCategoryDisplayName('category3') }}
+                </label>
+              </div>
+            </div>
+
+            <!-- Stock Filter -->
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inStockOnly"
+                  [(ngModel)]="filters.inStockOnly"
+                  (change)="applyFilters()"
+                />
+                <label class="form-check-label" for="inStockOnly">
+                  In Stock Only
+                </label>
+              </div>
+            </div>
+
             <button
-              class="btn btn-secondary btn-sm mb-2"
+              class="btn btn-secondary w-100"
               (click)="clearFilters()"
             >
-              Clear Filters
+              <i class="bi bi-arrow-clockwise"></i> Clear Filters
             </button>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="filter1"
-                [(ngModel)]="filters.category1"
-              />
-              <label class="form-check-label" for="filter1">Category 1</label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="filter2"
-                [(ngModel)]="filters.category2"
-              />
-              <label class="form-check-label" for="filter2">Category 2</label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="filter3"
-                [(ngModel)]="filters.category3"
-              />
-              <label class="form-check-label" for="filter3">Category 3</label>
-            </div>
           </div>
         </div>
       </div>
 
-      <!-- Vertical Line with Toggle Button -->
-      <!-- <div class="vertical-line">
-        <button
-          class="btn btn-outline-primary toggle-btn"
-          (click)="toggleFilters()"
-        >
-          @if(showFilters) {
-          <i class="bi bi-arrow-left"></i>
-          } @else {
-          <i class="bi bi-arrow-right"></i>
-          }
-        </button>
-      </div> -->
-
       <!-- Product Section -->
       <div [class.col-lg-9]="showFilters" [class.col-lg-12]="!showFilters">
-        <div
-          class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-sm-2 g-xl-4 g-lg-3"
-        >
+        <!-- Sort and Results Info -->
+        <div class="row mb-3">
+          <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-3">
+                <span class="form-label mb-0">Sort by:</span>
+                <select 
+                  class="form-select form-select-sm" 
+                  id="sortSelect"
+                  [(ngModel)]="sortBy"
+                  (change)="onSortChange()"
+                  style="width: auto;"
+                >
+                  <option value="name">Name A-Z</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
+              <small class="text-muted">
+                Showing {{ filteredProducts.length }} of {{ products.length }} products
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3">
           <div class="col" *ngFor="let product of filteredProducts">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">
-                  {{ product.subtitle }}
-                </h6>
-                <button class="btn btn-primary" (click)="addToCart(product)">
-                  Add to Cart
+            <div class="card h-100 shadow-sm product-card">
+              <div class="card-body d-flex flex-column">
+                <!-- Product Image -->
+                <div class="text-center mb-3">
+                  <div class="product-image">{{ product.image }}</div>
+                </div>
+                
+                <!-- Product Info -->
+                <h6 class="card-title mb-1">{{ product.name }}</h6>
+                <p class="card-subtitle mb-2 text-muted small">{{ product.subtitle }}</p>
+                
+                <!-- Rating -->
+                <div class="mb-2">
+                  <span class="text-warning">
+                    <span *ngFor="let star of getRatingStars(product.rating)">{{ star }}</span>
+                  </span>
+                  <small class="text-muted ms-1">({{ product.rating }})</small>
+                </div>
+                
+                <!-- Price -->
+                <div class="mb-2">
+                  <span class="h5 text-primary mb-0">${{ product.price.toFixed(2) }}</span>
+                  <span *ngIf="!product.inStock" class="badge bg-danger ms-2">Out of Stock</span>
+                </div>
+                
+                <!-- Description -->
+                <p class="card-text small text-muted flex-grow-1">{{ product.description }}</p>
+                
+                <!-- Action Button -->
+                <button 
+                  class="btn btn-primary mt-auto" 
+                  (click)="addToCart(product)"
+                  [disabled]="!product.inStock"
+                >
+                  <i class="bi bi-cart-plus"></i>
+                  {{ product.inStock ? 'Add to Cart' : 'Out of Stock' }}
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div *ngIf="filteredProducts.length === 0" class="text-center py-5">
+          <div class="text-muted">
+            <i class="bi bi-search display-1"></i>
+            <h4 class="mt-3">No products found</h4>
+            <p>Try adjusting your filters or search terms.</p>
+            <button class="btn btn-outline-primary" (click)="clearFilters()">
+              Clear All Filters
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">
+        <i class="bi bi-cart3"></i> Shopping Cart
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div *ngIf="cartItems.length === 0" class="text-center py-5">
+        <i class="bi bi-cart-x display-1 text-muted"></i>
+        <h6 class="mt-3 text-muted">Your cart is empty</h6>
+        <p class="text-muted small">Add some products to get started!</p>
+      </div>
+
+      <div *ngIf="cartItems.length > 0">
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <div *ngFor="let item of cartItems" class="cart-item d-flex align-items-center gap-3 mb-3 p-3 border rounded">
+            <div class="cart-item-image">{{ item.image }}</div>
+            <div class="flex-grow-1">
+              <h6 class="mb-1">{{ item.name }}</h6>
+              <p class="mb-0 text-primary fw-bold">${{ item.price.toFixed(2) }}</p>
+            </div>
+            <button 
+              class="btn btn-sm btn-outline-danger" 
+              (click)="removeFromCart(item.id)"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cart Total -->
+        <div class="border-top pt-3 mt-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Total:</h5>
+            <h5 class="mb-0 text-primary">${{ cartTotal.toFixed(2) }}</h5>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="d-grid gap-2">
+            <button 
+              class="btn btn-success" 
+              (click)="checkout()"
+            >
+              <i class="bi bi-credit-card"></i> Checkout
+            </button>
+            <button 
+              class="btn btn-outline-secondary" 
+              (click)="clearCart()"
+            >
+              <i class="bi bi-trash"></i> Clear Cart
+            </button>
           </div>
         </div>
       </div>
